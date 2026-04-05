@@ -21,6 +21,8 @@
  background: linear-gradient(135deg, #6a1b9a, #9c27b0);
  border: none;
  cursor: pointer;
+ -webkit-tap-highlight-color: transparent;
+ outline: none;
  box-shadow: 0 4px 18px rgba(106, 27, 154, 0.4), 0 0 24px rgba(106, 27, 154, 0.15);
  z-index: 10000;
  display: flex;
@@ -47,6 +49,12 @@
  animation: none;
 }
 
+
+
+#buildcalc-chat-toggle:focus,
+#buildcalc-chat-toggle:focus-visible {
+ outline: none;
+}
 
 #buildcalc-chat-toggle svg {
  width: 38px;
@@ -134,7 +142,7 @@
  align-items: center;
  justify-content: center;
  flex-shrink: 0;
- border: 1.5px solid rgba(255, 255, 255, 0.25);
+ border: none;
 }
 
 
@@ -501,7 +509,7 @@
  align-items: center;
  justify-content: center;
  box-shadow: 0 4px 20px rgba(106, 27, 154, 0.15);
- border: 2px solid #e1bee7;
+ border: none;
 }
 
 
