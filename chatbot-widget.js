@@ -38,10 +38,11 @@ widget
      apiUrl: "https://buildbot5510-buildbot.hf.space/chat",
      registerUrl: "", // API endpoint to register user: POST { name, mobile, orgId } → { name, session_id }
      orgId: "", // Hardcoded organization ID to pass with registration
-
-   /* -------------------------------------------------- *
-    *  DOM injection
-    * -------------------------------------------------- */
+     botName: "BuildCalc",
+     botTagline: "Construction Cost Estimator",
+     welcomeMessage:
+       "Hello! I'm BuildCalc. I can help you get a preliminary estimate for your construction project. Just describe what you're planning!",
+   },
    _injectHTML() {
      const container = document.createElement("div");
      container.id = "buildcalc-chatbot-widget";
