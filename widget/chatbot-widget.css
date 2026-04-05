@@ -624,7 +624,7 @@
 /* -- Responsive -- */
 @media (max-width: 500px) {
  #buildcalc-chat-window {
-   top: max(8px, calc(env(safe-area-inset-top, 0px) + 8px));
+   top: max(20px, calc(env(safe-area-inset-top, 0px) + 14px));
    width: calc(100vw - 16px);
    height: auto;
    max-height: none;
@@ -642,7 +642,6 @@
 
 @media (max-height: 760px) {
  #buildcalc-chat-window {
-   top: max(8px, calc(env(safe-area-inset-top, 0px) + 8px));
+   top: max(16px, calc(env(safe-area-inset-top, 0px) + 12px));
  }
 }
-
