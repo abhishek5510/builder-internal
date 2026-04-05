@@ -79,10 +79,11 @@
 /* -- Chat Window -- */
 #buildcalc-chat-window {
  position: fixed;
- bottom: 96px;
+ bottom: calc(96px + env(safe-area-inset-bottom, 0px));
  right: 24px;
- width: 460px;
- height: 640px;
+ width: min(460px, calc(100vw - 32px));
+ height: min(640px, calc(100vh - 132px - env(safe-area-inset-bottom, 0px)));
+ max-height: calc(100vh - 132px - env(safe-area-inset-bottom, 0px));
  background: #ffffff;
  border-radius: 16px;
  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
@@ -623,18 +624,25 @@
 @media (max-width: 500px) {
  #buildcalc-chat-window {
    width: calc(100vw - 16px);
-   height: calc(100vh - 120px);
+   height: min(640px, calc(100vh - 104px - env(safe-area-inset-bottom, 0px)));
+   max-height: calc(100vh - 104px - env(safe-area-inset-bottom, 0px));
    right: 8px;
-   bottom: 80px;
+   bottom: calc(80px + env(safe-area-inset-bottom, 0px));
    border-radius: 12px;
  }
 
 
  #buildcalc-chat-toggle {
-   bottom: 16px;
+   bottom: calc(16px + env(safe-area-inset-bottom, 0px));
    right: 16px;
  }
 }
 
+@media (max-height: 760px) {
+ #buildcalc-chat-window {
+   height: calc(100vh - 124px - env(safe-area-inset-bottom, 0px));
+   max-height: calc(100vh - 124px - env(safe-area-inset-bottom, 0px));
+ }
+}
 
 
