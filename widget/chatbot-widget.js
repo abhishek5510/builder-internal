@@ -42,6 +42,24 @@
      welcomeMessage:
        "Hello! I'm BuildCalc. I can help you get a preliminary estimate for your construction project. Just describe what you're planning!",
    },
+
+   sessionId: null,
+   userName: null,
+   userMobile: null,
+
+   /** Initialise the widget and inject DOM */
+   init(options = {}) {
+     Object.assign(this.config, options);
+     this._injectHTML();
+     this._bindEvents();
+
+     // Auto-open the chatbot when the page loads
+     this._autoOpen();
+   },
+
+   /* -------------------------------------------------- *
+    *  DOM injection
+    * -------------------------------------------------- */
    _injectHTML() {
      const container = document.createElement("div");
      container.id = "buildcalc-chatbot-widget";
