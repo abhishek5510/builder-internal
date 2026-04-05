@@ -79,11 +79,12 @@
 /* -- Chat Window -- */
 #buildcalc-chat-window {
  position: fixed;
+ top: max(16px, calc(env(safe-area-inset-top, 0px) + 16px));
  bottom: calc(96px + env(safe-area-inset-bottom, 0px));
  right: 24px;
  width: min(460px, calc(100vw - 32px));
- height: min(640px, calc(100vh - 132px - env(safe-area-inset-bottom, 0px)));
- max-height: calc(100vh - 132px - env(safe-area-inset-bottom, 0px));
+ height: auto;
+ max-height: none;
  background: #ffffff;
  border-radius: 16px;
  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
@@ -623,9 +624,10 @@
 /* -- Responsive -- */
 @media (max-width: 500px) {
  #buildcalc-chat-window {
+   top: max(8px, calc(env(safe-area-inset-top, 0px) + 8px));
    width: calc(100vw - 16px);
-   height: min(640px, calc(100vh - 104px - env(safe-area-inset-bottom, 0px)));
-   max-height: calc(100vh - 104px - env(safe-area-inset-bottom, 0px));
+   height: auto;
+   max-height: none;
    right: 8px;
    bottom: calc(80px + env(safe-area-inset-bottom, 0px));
    border-radius: 12px;
@@ -640,9 +642,7 @@
 
 @media (max-height: 760px) {
  #buildcalc-chat-window {
-   height: calc(100vh - 124px - env(safe-area-inset-bottom, 0px));
-   max-height: calc(100vh - 124px - env(safe-area-inset-bottom, 0px));
+   top: max(8px, calc(env(safe-area-inset-top, 0px) + 8px));
  }
 }
-
 
