@@ -1,4 +1,11 @@
 {
+ "public": ".",
+ "rewrites": [
+   {
+     "source": "/widget/:file",
+     "destination": "/:file"
+   }
+ ],
  "headers": [
    {
      "source": "/widget/(.*)",
