@@ -1,4 +1,3 @@
-widget
 /**
 * BuildCalc Chatbot Widget
 * Embeddable chat widget for the BuildCalc construction cost estimator.
