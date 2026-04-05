@@ -287,6 +287,19 @@
      document.getElementById("buildcalc-chat-messages").style.display = "none";
      document.getElementById("buildcalc-chat-input-area").style.display = "none";
      document.getElementById("buildcalc-chat-footer").style.display = "none";
+
+     // Keep the widget below browser chrome in mobile in-app browsers.
+     this._syncViewportOffsetTop();
+     if (window.visualViewport) {
+       window.visualViewport.addEventListener("resize", () => this._syncViewportOffsetTop());
+       window.visualViewport.addEventListener("scroll", () => this._syncViewportOffsetTop());
+     }
+     window.addEventListener("resize", () => this._syncViewportOffsetTop());
+   },
+
+   _syncViewportOffsetTop() {
+     const offsetTop = window.visualViewport ? window.visualViewport.offsetTop : 0;
+     document.documentElement.style.setProperty("--buildcalc-viewport-offset-top", `${Math.max(0, Math.round(offsetTop))}px`);
    },
 
    /** Grow/shrink the textarea to fit content, max 4 lines */
@@ -486,5 +499,4 @@
  // Expose globally
  window.BuildCalcChat = BuildCalcChat;
 })();
-
 

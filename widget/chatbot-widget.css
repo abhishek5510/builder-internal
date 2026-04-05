@@ -87,7 +87,7 @@
 /* -- Chat Window -- */
 #buildcalc-chat-window {
  position: fixed;
- top: max(16px, calc(env(safe-area-inset-top, 0px) + 16px));
+ top: calc(var(--buildcalc-viewport-offset-top, 0px) + max(16px, calc(env(safe-area-inset-top, 0px) + 16px)));
  bottom: calc(96px + env(safe-area-inset-bottom, 0px));
  right: 24px;
  width: min(460px, calc(100vw - 32px));
@@ -632,7 +632,7 @@
 /* -- Responsive -- */
 @media (max-width: 500px) {
  #buildcalc-chat-window {
-   top: max(20px, calc(env(safe-area-inset-top, 0px) + 14px));
+   top: calc(var(--buildcalc-viewport-offset-top, 0px) + max(20px, calc(env(safe-area-inset-top, 0px) + 14px)));
    width: calc(100vw - 16px);
    height: auto;
    max-height: none;
@@ -650,6 +650,6 @@
 
 @media (max-height: 760px) {
  #buildcalc-chat-window {
-   top: max(16px, calc(env(safe-area-inset-top, 0px) + 12px));
+   top: calc(var(--buildcalc-viewport-offset-top, 0px) + max(16px, calc(env(safe-area-inset-top, 0px) + 12px)));
  }
 }
