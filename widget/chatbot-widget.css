@@ -88,7 +88,7 @@
 #buildcalc-chat-window {
  position: fixed;
  top: calc(var(--buildcalc-viewport-offset-top, 0px) + max(16px, calc(env(safe-area-inset-top, 0px) + 16px)));
- bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+ bottom: calc(var(--buildcalc-chat-bottom-offset, 96px) + env(safe-area-inset-bottom, 0px) + var(--buildcalc-keyboard-inset, 0px));
  right: 24px;
  width: min(460px, calc(100vw - 32px));
  height: auto;
@@ -633,11 +633,11 @@
 @media (max-width: 500px) {
  #buildcalc-chat-window {
    top: calc(var(--buildcalc-viewport-offset-top, 0px) + max(20px, calc(env(safe-area-inset-top, 0px) + 14px)));
+   --buildcalc-chat-bottom-offset: 80px;
    width: calc(100vw - 16px);
    height: auto;
    max-height: none;
    right: 8px;
-   bottom: calc(80px + env(safe-area-inset-bottom, 0px));
    border-radius: 12px;
  }
 

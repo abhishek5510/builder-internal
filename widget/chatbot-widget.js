@@ -288,18 +288,30 @@
      document.getElementById("buildcalc-chat-input-area").style.display = "none";
      document.getElementById("buildcalc-chat-footer").style.display = "none";
 
-     // Keep the widget below browser chrome in mobile in-app browsers.
-     this._syncViewportOffsetTop();
+     // Keep the widget aligned with the visible viewport when mobile keyboards appear.
+     this._syncViewportMetrics();
      if (window.visualViewport) {
-       window.visualViewport.addEventListener("resize", () => this._syncViewportOffsetTop());
-       window.visualViewport.addEventListener("scroll", () => this._syncViewportOffsetTop());
+       window.visualViewport.addEventListener("resize", () => this._syncViewportMetrics());
+       window.visualViewport.addEventListener("scroll", () => this._syncViewportMetrics());
      }
-     window.addEventListener("resize", () => this._syncViewportOffsetTop());
+     window.addEventListener("resize", () => this._syncViewportMetrics());
+
+     // While typing on mobile, keep latest messages visible.
+     input.addEventListener("focus", () => {
+       this._syncViewportMetrics();
+       this._scrollToBottom();
+     });
+     input.addEventListener("blur", () => this._syncViewportMetrics());
    },
 
-   _syncViewportOffsetTop() {
-     const offsetTop = window.visualViewport ? window.visualViewport.offsetTop : 0;
+   _syncViewportMetrics() {
+     const viewport = window.visualViewport;
+     const offsetTop = viewport ? viewport.offsetTop : 0;
+     const viewportHeight = viewport ? viewport.height : window.innerHeight;
+     const keyboardInset = Math.max(0, window.innerHeight - viewportHeight - offsetTop);
+
      document.documentElement.style.setProperty("--buildcalc-viewport-offset-top", `${Math.max(0, Math.round(offsetTop))}px`);
+     document.documentElement.style.setProperty("--buildcalc-keyboard-inset", `${Math.round(keyboardInset)}px`);
    },
 
    /** Grow/shrink the textarea to fit content, max 4 lines */
@@ -499,4 +511,3 @@
  // Expose globally
  window.BuildCalcChat = BuildCalcChat;
 })();
-
