@@ -1,5 +1,4 @@
 {
- "public": ".",
  "rewrites": [
    {
      "source": "/widget/:file",
