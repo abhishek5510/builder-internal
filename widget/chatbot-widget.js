@@ -62,7 +62,7 @@
     * -------------------------------------------------- */
    _injectHTML() {
      const container = document.createElement("div");
-     container.id = "buildcalc-chatbot-widget";
+     container.className = "chatbot-widget";
      container.innerHTML = `
        <!-- Toggle Button -->
        <button id="buildcalc-chat-toggle" aria-label="Open chat">
@@ -154,7 +154,7 @@
            </div>
          </div>
 
-         <div id="buildcalc-chat-messages"></div>
+         <div class="chatbot-messages-list"></div>
          <div id="buildcalc-chat-input-area">
            <textarea
              id="buildcalc-chat-input"
@@ -238,12 +238,12 @@
          document.getElementById("buildcalc-user-form-overlay").style.display = "none";
 
          // Show the chat area
-         document.getElementById("buildcalc-chat-messages").style.display = "flex";
+         document.querySelector('.chatbot-messages-list').style.display = "flex";
          document.getElementById("buildcalc-chat-input-area").style.display = "flex";
          document.getElementById("buildcalc-chat-footer").style.display = "block";
 
          // Show personalized welcome message using the name returned by API
-         const welcomeMsg = `Hello ${this.userName}! I'm ${this.config.botName}, your AI construction cost estimator. Tell me about your project — the area, number of floors, type of construction — and I'll help you get a preliminary estimate!`;
+         const welcomeMsg = this.config.welcomeMessage.replace(/^Hello!/, `Hello ${this.userName}!`);
          this._addBotMessage(welcomeMsg);
          input.focus();
 
@@ -284,7 +284,7 @@
      });
 
      // Initially hide chat messages and input (form is shown first)
-     document.getElementById("buildcalc-chat-messages").style.display = "none";
+     document.querySelector('.chatbot-messages-list').style.display = "none";
      document.getElementById("buildcalc-chat-input-area").style.display = "none";
      document.getElementById("buildcalc-chat-footer").style.display = "none";
 
@@ -392,19 +392,19 @@
     *  Message helpers
     * -------------------------------------------------- */
    _addUserMessage(text) {
-     const container = document.getElementById("buildcalc-chat-messages");
+     const container = document.querySelector('.chatbot-messages-list');
      const el = document.createElement("div");
-     el.className = "buildcalc-message user";
-     el.textContent = text;
+     el.className = "chatbot-message chatbot-message-outgoing";
+     el.innerHTML = `<div class="chatbot-message-bubble">${text}</div>`;
      container.appendChild(el);
      this._scrollToBottom();
    },
 
    _addBotMessage(text) {
-     const container = document.getElementById("buildcalc-chat-messages");
+     const container = document.querySelector('.chatbot-messages-list');
      const el = document.createElement("div");
-     el.className = "buildcalc-message bot";
-     el.innerHTML = this._parseMarkdown(text);
+     el.className = "chatbot-message chatbot-message-incoming";
+     el.innerHTML = `<div class="chatbot-message-bubble">${this._parseMarkdown(text)}</div>`;
      container.appendChild(el);
      this._scrollToBottom();
    },
@@ -491,9 +491,9 @@
    },
 
    _showTyping() {
-     const container = document.getElementById("buildcalc-chat-messages");
+     const container = document.querySelector('.chatbot-messages-list');
      const el = document.createElement("div");
-     el.className = "buildcalc-typing";
+     el.className = "chatbot-typing";
      el.innerHTML = "<span></span><span></span><span></span>";
      container.appendChild(el);
      this._scrollToBottom();
@@ -501,7 +501,7 @@
    },
 
    _scrollToBottom() {
-     const container = document.getElementById("buildcalc-chat-messages");
+     const container = document.querySelector('.chatbot-messages-list');
      requestAnimationFrame(() => {
        container.scrollTop = container.scrollHeight;
      });

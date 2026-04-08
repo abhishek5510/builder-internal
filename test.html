@@ -27,16 +27,16 @@
   </div>
 
   <!-- Load the widget script -->
-  <script src="http://localhost:3000/widget/chatbot-widget.js"></script>
-  <script>
-    BuildCalcChat.init({
-      apiUrl: "https://buildbot5510-buildbot.hf.space/chat",
-      registerUrl: "https://buildbot5510-buildbot.hf.space/lead",
-      orgId: "your-test-org-id",
-      botName: "BuildCalc",
-      botTagline: "Construction Cost Estimator",
-      welcomeMessage: "Hello! I'm BuildCalc. Tell me about your construction project!"
-    });
-  </script>
+  <script src="widget/chatbot-widget.js"></script>
+      <script>
+        BuildCalcChat.init({
+          apiUrl: "http://localhost:8000/chat",
+          registerUrl: "http://localhost:8000/lead",
+          orgId: "timelybuilt",
+          botName: "BuildCalc",
+          botTagline: "Mathapathi AI Bot",
+          welcomeMessage: "Hello! I'm your AI assistant for Timely Build. I can help you get a preliminary cost estimate right now. Are you looking to build a new house or design your interiors?"
+        });
+      </script>
 </body>
 </html>

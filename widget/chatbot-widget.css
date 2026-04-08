@@ -2,11 +2,10 @@
 
 
 /* Reset for widget scope */
-#buildcalc-chatbot-widget * {
- margin: 0;
- padding: 0;
- box-sizing: border-box;
- font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+.chatbot-widget *,
+.chatbot-widget *::before,
+.chatbot-widget *::after {
+  box-sizing: border-box;
 }
 
 
@@ -92,7 +91,7 @@
  right: 24px;
  width: min(460px, calc(100vw - 32px));
  height: auto;
- max-height: none;
+ max-height: calc(100vh - 32px);
  background: #ffffff;
  border-radius: 16px;
  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
@@ -201,91 +200,109 @@
 
 
 /* -- Messages Area -- */
-#buildcalc-chat-messages {
- flex: 1;
- overflow-y: auto;
- overflow-x: hidden;
- padding: 20px 20px;
+.chatbot-messages-list {
  display: flex;
+ flex: 1;
  flex-direction: column;
- gap: 18px;
+ gap: 16px;
+ padding: 18px 20px;
+ overflow-y: auto;
  background: #f7f8fa;
  min-height: 0;
+ scrollbar-width: none;
+ -ms-overflow-style: none;
 }
 
 
-#buildcalc-chat-messages::-webkit-scrollbar {
- width: 6px;
+/* Hides scrollbar in Chrome, Safari, and Edge (Chromium) */
+.chatbot-messages-list::-webkit-scrollbar {
+ width: 0;
+ height: 0;
 }
 
 
-#buildcalc-chat-messages::-webkit-scrollbar-track {
+.chatbot-messages-list::-webkit-scrollbar-track {
  background: transparent;
 }
 
 
-#buildcalc-chat-messages::-webkit-scrollbar-thumb {
- background: #c0c0c0;
- border-radius: 3px;
+.chatbot-messages-list::-webkit-scrollbar-thumb {
+ background: transparent;
 }
 
 
 /* -- Message Bubbles -- */
-.buildcalc-message {
- max-width: 85%;
- padding: 16px 22px;
- border-radius: 18px;
- font-size: 14.5px;
- line-height: 1.7;
- word-wrap: break-word;
- overflow-wrap: break-word;
- word-break: break-word;
- white-space: pre-wrap;
- min-width: 0;
- letter-spacing: 0.01em;
+.chatbot-message {
+ display: flex;
+ width: 100%;
+ margin-bottom: 0;
 }
 
+.chatbot-message-incoming {
+ justify-content: flex-start;
+}
 
-.buildcalc-message.bot {
- align-self: flex-start;
+.chatbot-message-outgoing {
+ justify-content: flex-end;
+}
+
+.chatbot-message-bubble {
+ display: inline-block;
+ padding: 12px 18px;
+ border-radius: 18px;
+ max-width: 85%;
+ font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+ font-size: 14px;
+ line-height: 1.6;
+ word-wrap: break-word;
+ overflow-wrap: break-word;
+ box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+}
+
+.chatbot-message-incoming .chatbot-message-bubble {
  background: #ffffff;
- color: #3a3a3a;
- border: 1px solid #eceef1;
+ color: #1f2937;
+ border: 1px solid #e5e7eb;
  border-bottom-left-radius: 6px;
- box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
- white-space: normal;
+}
+
+.chatbot-message-outgoing .chatbot-message-bubble {
+ background: linear-gradient(135deg, #6a1b9a, #7b1fa2);
+ color: #ffffff;
+ border-bottom-right-radius: 6px;
+ box-shadow: 0 2px 8px rgba(106, 27, 154, 0.2);
 }
 
 
 /* -- Markdown styles inside bot messages -- */
-.buildcalc-message.bot p {
+.chatbot-message-incoming .chatbot-message-bubble p {
  margin: 0 0 8px 0;
 }
 
 
-.buildcalc-message.bot p:last-child {
+.chatbot-message-incoming .chatbot-message-bubble p:last-child {
  margin-bottom: 0;
 }
 
 
-.buildcalc-message.bot .bc-paragraph-break {
+.chatbot-message-incoming .chatbot-message-bubble .bc-paragraph-break {
  height: 10px;
 }
 
 
-.buildcalc-message.bot strong {
+.chatbot-message-incoming .chatbot-message-bubble strong {
  font-weight: 700;
  color: #6a1b9a;
 }
 
 
-.buildcalc-message.bot em {
+.chatbot-message-incoming .chatbot-message-bubble em {
  font-style: italic;
  color: #555;
 }
 
 
-.buildcalc-message.bot .bc-inline-code {
+.chatbot-message-incoming .chatbot-message-bubble .bc-inline-code {
  background: #f0f4f8;
  padding: 2px 7px;
  border-radius: 4px;
@@ -296,42 +313,41 @@
 }
 
 
-.buildcalc-message.bot ul,
-.buildcalc-message.bot ol {
+.chatbot-message-incoming .chatbot-message-bubble ul,
+.chatbot-message-incoming .chatbot-message-bubble ol {
  margin: 8px 0;
  padding-left: 22px;
 }
 
 
-.buildcalc-message.bot li {
+.chatbot-message-incoming .chatbot-message-bubble li {
  margin-bottom: 6px;
  padding-left: 2px;
 }
 
 
-.buildcalc-message.bot li:last-child {
+.chatbot-message-incoming .chatbot-message-bubble li:last-child {
  margin-bottom: 0;
 }
 
 
-.buildcalc-message.bot h3,
-.buildcalc-message.bot h4,
-.buildcalc-message.bot h5,
-.buildcalc-message.bot h6 {
+.chatbot-message-incoming .chatbot-message-bubble h3,
+.chatbot-message-incoming .chatbot-message-bubble h4,
+.chatbot-message-incoming .chatbot-message-bubble h5,
+.chatbot-message-incoming .chatbot-message-bubble h6 {
  font-weight: 700;
  color: #6a1b9a;
  margin: 10px 0 6px 0;
 }
 
 
-.buildcalc-message.bot h3 { font-size: 15px; }
-.buildcalc-message.bot h4 { font-size: 14px; }
-.buildcalc-message.bot h5 { font-size: 14px; }
-.buildcalc-message.bot h6 { font-size: 13px; }
+.chatbot-message-incoming .chatbot-message-bubble h3 { font-size: 15px; }
+.chatbot-message-incoming .chatbot-message-bubble h4 { font-size: 14px; }
+.chatbot-message-incoming .chatbot-message-bubble h5 { font-size: 14px; }
+.chatbot-message-incoming .chatbot-message-bubble h6 { font-size: 13px; }
 
 
-.buildcalc-message.user {
- align-self: flex-end;
+.chatbot-message-outgoing .chatbot-message-bubble {
  background: linear-gradient(135deg, #6a1b9a, #7b1fa2);
  color: #ffffff;
  border-bottom-right-radius: 6px;
@@ -340,19 +356,19 @@
 
 
 /* -- Typing Indicator -- */
-.buildcalc-typing {
+.chatbot-typing {
  align-self: flex-start;
  display: flex;
- gap: 5px;
+ gap: 6px;
  padding: 12px 18px;
  background: #ffffff;
  border: 1px solid #e5e7eb;
- border-radius: 16px;
- border-bottom-left-radius: 4px;
+ border-radius: 18px;
+ border-bottom-left-radius: 6px;
 }
 
 
-.buildcalc-typing span {
+.chatbot-typing span {
  width: 8px;
  height: 8px;
  border-radius: 50%;
@@ -361,17 +377,17 @@
 }
 
 
-.buildcalc-typing span:nth-child(1) {
+.chatbot-typing span:nth-child(1) {
  animation-delay: 0s;
 }
 
 
-.buildcalc-typing span:nth-child(2) {
+.chatbot-typing span:nth-child(2) {
  animation-delay: 0.2s;
 }
 
 
-.buildcalc-typing span:nth-child(3) {
+.chatbot-typing span:nth-child(3) {
  animation-delay: 0.4s;
 }
 
@@ -481,8 +497,10 @@
  align-items: center;
  justify-content: center;
  background: linear-gradient(180deg, #faf5ff 0%, #f3e8ff 100%);
- padding: 32px 28px;
+ padding: 24px 24px;
  overflow-y: auto;
+ max-height: calc(100vh - 140px);
+ min-height: 240px;
 }
 
 
