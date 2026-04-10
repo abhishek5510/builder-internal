@@ -1,5 +1,15 @@
 /* ===== BuildCalc Chatbot Widget Styles ===== */
 
+.chatbot-widget {
+  --buildcalc-primary: #6a1b9a;
+  --buildcalc-primary-2: #9c27b0;
+  --buildcalc-primary-soft: #ce93d8;
+  --buildcalc-primary-text-soft: #e1bee7;
+  --buildcalc-primary-strong-text: #4a148c;
+  --buildcalc-form-bg-start: #faf5ff;
+  --buildcalc-form-bg-end: #f3e8ff;
+  --buildcalc-form-focus-shadow: rgba(156, 39, 176, 0.1);
+}
 
 /* Reset for widget scope */
 .chatbot-widget *,
@@ -17,7 +27,7 @@
  width: 64px;
  height: 64px;
  border-radius: 50%;
- background: linear-gradient(135deg, #6a1b9a, #9c27b0);
+ background: linear-gradient(135deg, var(--buildcalc-primary), var(--buildcalc-primary-2));
  border: none;
  cursor: pointer;
  -webkit-tap-highlight-color: transparent;
@@ -122,7 +132,7 @@
 
 /* -- Header -- */
 #buildcalc-chat-header {
- background: linear-gradient(135deg, #6a1b9a, #9c27b0);
+ background: linear-gradient(135deg, var(--buildcalc-primary), var(--buildcalc-primary-2));
  color: #ffffff;
  padding: 16px 20px;
  display: flex;
@@ -171,7 +181,7 @@
  width: 8px;
  height: 8px;
  border-radius: 50%;
- background: #ce93d8;
+ background: var(--buildcalc-primary-soft);
  display: inline-block;
  flex-shrink: 0;
  box-shadow: 0 0 6px rgba(206, 147, 216, 0.7);
@@ -195,7 +205,7 @@
  font-size: 12px;
  opacity: 0.9;
  font-weight: 400;
- color: #e1bee7;
+ color: var(--buildcalc-primary-text-soft);
 }
 
 
@@ -267,7 +277,7 @@
 }
 
 .chatbot-message-outgoing .chatbot-message-bubble {
- background: linear-gradient(135deg, #6a1b9a, #7b1fa2);
+ background: linear-gradient(135deg, var(--buildcalc-primary), var(--buildcalc-primary-2));
  color: #ffffff;
  border-bottom-right-radius: 6px;
  box-shadow: 0 2px 8px rgba(106, 27, 154, 0.2);
@@ -292,7 +302,7 @@
 
 .chatbot-message-incoming .chatbot-message-bubble strong {
  font-weight: 700;
- color: #6a1b9a;
+ color: var(--buildcalc-primary);
 }
 
 
@@ -308,7 +318,7 @@
  border-radius: 4px;
  font-family: 'SF Mono', 'Consolas', 'Monaco', monospace;
  font-size: 13px;
- color: #6a1b9a;
+ color: var(--buildcalc-primary);
  border: 1px solid #e2e8f0;
 }
 
@@ -336,7 +346,7 @@
 .chatbot-message-incoming .chatbot-message-bubble h5,
 .chatbot-message-incoming .chatbot-message-bubble h6 {
  font-weight: 700;
- color: #6a1b9a;
+ color: var(--buildcalc-primary);
  margin: 10px 0 6px 0;
 }
 
@@ -348,7 +358,7 @@
 
 
 .chatbot-message-outgoing .chatbot-message-bubble {
- background: linear-gradient(135deg, #6a1b9a, #7b1fa2);
+ background: linear-gradient(135deg, var(--buildcalc-primary), var(--buildcalc-primary-2));
  color: #ffffff;
  border-bottom-right-radius: 6px;
  box-shadow: 0 1px 4px rgba(106, 27, 154, 0.15);
@@ -433,7 +443,7 @@
 
 
 #buildcalc-chat-input:focus {
- border-color: #9c27b0;
+ border-color: var(--buildcalc-primary-2);
  background: #ffffff;
 }
 
@@ -447,7 +457,7 @@
  width: 40px;
  height: 40px;
  border-radius: 50%;
- background: linear-gradient(135deg, #6a1b9a, #9c27b0);
+ background: linear-gradient(135deg, var(--buildcalc-primary), var(--buildcalc-primary-2));
  border: none;
  cursor: pointer;
  display: flex;
@@ -496,7 +506,7 @@
  flex-direction: column;
  align-items: center;
  justify-content: center;
- background: linear-gradient(180deg, #faf5ff 0%, #f3e8ff 100%);
+ background: linear-gradient(180deg, var(--buildcalc-form-bg-start) 0%, var(--buildcalc-form-bg-end) 100%);
  padding: 24px 24px;
  overflow-y: auto;
  max-height: calc(100vh - 140px);
@@ -534,7 +544,7 @@
 .buildcalc-form-title {
  font-size: 22px;
  font-weight: 700;
- color: #4a148c;
+ color: var(--buildcalc-primary-strong-text);
  margin-bottom: 6px;
 }
 
@@ -571,7 +581,7 @@
  gap: 6px;
  font-size: 13px;
  font-weight: 600;
- color: #6a1b9a;
+ color: var(--buildcalc-primary);
  margin-bottom: 10px;
  text-transform: uppercase;
  letter-spacing: 0.5px;
@@ -598,8 +608,8 @@
 
 
 .buildcalc-form-field input:focus {
- border-color: #9c27b0;
- box-shadow: 0 0 0 4px rgba(156, 39, 176, 0.1), 0 2px 8px rgba(156, 39, 176, 0.08);
+ border-color: var(--buildcalc-primary-2);
+ box-shadow: 0 0 0 4px var(--buildcalc-form-focus-shadow), 0 2px 8px var(--buildcalc-form-focus-shadow);
  background: #fefcff;
 }
 
@@ -622,7 +632,7 @@
  align-items: center;
  gap: 8px;
  padding: 11px 32px;
- background: linear-gradient(135deg, #7b1fa2, #9c27b0);
+ background: linear-gradient(135deg, var(--buildcalc-primary), var(--buildcalc-primary-2));
  color: #ffffff;
  border: none;
  border-radius: 24px;
