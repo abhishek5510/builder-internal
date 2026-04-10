@@ -43,17 +43,7 @@
        "Hello! I'm BuildCalc. I can help you get a preliminary estimate for your construction project. Just describe what you're planning!",
    },
    clientThemes: {
-     d2k: {
-       "--buildcalc-primary": "#0f5ea8",
-       "--buildcalc-primary-2": "#1d7ad1",
-       "--buildcalc-primary-soft": "#87b9ea",
-       "--buildcalc-primary-text-soft": "#d9ebff",
-       "--buildcalc-primary-strong-text": "#114a82",
-       "--buildcalc-form-bg-start": "#eff7ff",
-       "--buildcalc-form-bg-end": "#e3f1ff",
-       "--buildcalc-form-focus-shadow": "rgba(29, 122, 209, 0.18)",
-     },
-     d2c: {
+     mathapathi: {
        "--buildcalc-primary": "#0f5ea8",
        "--buildcalc-primary-2": "#1d7ad1",
        "--buildcalc-primary-soft": "#87b9ea",
