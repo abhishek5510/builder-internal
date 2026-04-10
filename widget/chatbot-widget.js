@@ -53,6 +53,16 @@
        "--buildcalc-form-bg-end": "#e3f1ff",
        "--buildcalc-form-focus-shadow": "rgba(29, 122, 209, 0.18)",
      },
+     d2c: {
+       "--buildcalc-primary": "#0f5ea8",
+       "--buildcalc-primary-2": "#1d7ad1",
+       "--buildcalc-primary-soft": "#87b9ea",
+       "--buildcalc-primary-text-soft": "#d9ebff",
+       "--buildcalc-primary-strong-text": "#114a82",
+       "--buildcalc-form-bg-start": "#eff7ff",
+       "--buildcalc-form-bg-end": "#e3f1ff",
+       "--buildcalc-form-focus-shadow": "rgba(29, 122, 209, 0.18)",
+     },
    },
 
    sessionId: null,
