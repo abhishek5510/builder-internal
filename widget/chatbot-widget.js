@@ -42,6 +42,18 @@
      welcomeMessage:
        "Hello! I'm BuildCalc. I can help you get a preliminary estimate for your construction project. Just describe what you're planning!",
    },
+   clientThemes: {
+     d2k: {
+       "--buildcalc-primary": "#0f5ea8",
+       "--buildcalc-primary-2": "#1d7ad1",
+       "--buildcalc-primary-soft": "#87b9ea",
+       "--buildcalc-primary-text-soft": "#d9ebff",
+       "--buildcalc-primary-strong-text": "#114a82",
+       "--buildcalc-form-bg-start": "#eff7ff",
+       "--buildcalc-form-bg-end": "#e3f1ff",
+       "--buildcalc-form-focus-shadow": "rgba(29, 122, 209, 0.18)",
+     },
+   },
 
    sessionId: null,
    userName: null,
@@ -51,6 +63,7 @@
    init(options = {}) {
      Object.assign(this.config, options);
      this._injectHTML();
+     this._applyClientTheme();
      this._bindEvents();
 
      // Auto-open the chatbot when the page loads
@@ -132,14 +145,14 @@
              <form id="buildcalc-user-info-form" autocomplete="off">
                <div class="buildcalc-form-field">
                  <label for="buildcalc-user-name">
-                   <svg viewBox="0 0 20 20" width="16" height="16" fill="#9c27b0"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 0114 0H3z"/></svg>
+                   <svg viewBox="0 0 20 20" width="16" height="16" fill="currentColor"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 0114 0H3z"/></svg>
                    Name
                  </label>
                  <input type="text" id="buildcalc-user-name" placeholder="e.g. Rahul Sharma" required />
                </div>
                <div class="buildcalc-form-field">
                  <label for="buildcalc-user-mobile">
-                   <svg viewBox="0 0 20 20" width="16" height="16" fill="#9c27b0"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+                   <svg viewBox="0 0 20 20" width="16" height="16" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
                    Mobile Number
                  </label>
                  <input type="tel" id="buildcalc-user-mobile" placeholder="e.g. 9876543210" required />
@@ -170,6 +183,19 @@
        </div>
      `;
      document.body.appendChild(container);
+   },
+
+   _applyClientTheme() {
+     const normalizedOrgId = (this.config.orgId || "").trim().toLowerCase();
+     const theme = this.clientThemes[normalizedOrgId];
+     if (!theme) return;
+
+     const widgetRoot = document.querySelector(".chatbot-widget");
+     if (!widgetRoot) return;
+
+     Object.entries(theme).forEach(([key, value]) => {
+       widgetRoot.style.setProperty(key, value);
+     });
    },
 
    /* -------------------------------------------------- *
