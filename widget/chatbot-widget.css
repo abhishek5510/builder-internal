@@ -72,6 +72,40 @@
  transition: transform 0.3s ease;
 }
 
+#buildcalc-chat-toggle:not(.open) .icon-chat .bot-eye,
+#buildcalc-chat-toggle:not(.open) .icon-chat .bot-eye-glint {
+ transform-box: fill-box;
+ transform-origin: center;
+ animation: buildcalc-eye-blink 4s infinite ease-in-out;
+}
+
+#buildcalc-chat-toggle:not(.open) .icon-chat .bot-eye-right,
+#buildcalc-chat-toggle:not(.open) .icon-chat .bot-eye-glint-right {
+ animation-delay: 0.08s;
+}
+
+@keyframes buildcalc-eye-blink {
+ 0%, 44%, 48%, 100% {
+   transform: scaleY(1);
+   opacity: 1;
+ }
+ 46% {
+   transform: scaleY(0.08);
+   opacity: 0.55;
+ }
+}
+
+@media (prefers-reduced-motion: reduce) {
+ #buildcalc-chat-toggle {
+   animation: none;
+ }
+
+ #buildcalc-chat-toggle:not(.open) .icon-chat .bot-eye,
+ #buildcalc-chat-toggle:not(.open) .icon-chat .bot-eye-glint {
+   animation: none;
+ }
+}
+
 
 #buildcalc-chat-toggle.open svg.icon-chat {
  display: none;
