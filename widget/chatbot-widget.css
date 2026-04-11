@@ -38,17 +38,41 @@
  align-items: center;
  justify-content: center;
  transition: transform 0.3s ease, box-shadow 0.3s ease;
- animation: buildcalc-toggle-glow 3s infinite ease-in-out;
+ animation: buildcalc-neon-flicker 1.8s infinite cubic-bezier(0.42, 0, 0.2, 1);
 }
 
 
-@keyframes buildcalc-toggle-glow {
+@keyframes buildcalc-neon-flicker {
  0%, 100% {
-   box-shadow: 0 4px 18px rgba(106, 27, 154, 0.4), 0 0 24px rgba(106, 27, 154, 0.15);
+   box-shadow: 0 4px 18px rgba(106, 27, 154, 0.42), 0 0 26px rgba(106, 27, 154, 0.2);
+   filter: brightness(0.98);
  }
- 50% {
-   box-shadow: 0 4px 24px rgba(106, 27, 154, 0.6), 0 0 36px rgba(106, 27, 154, 0.3);
+ 12% {
+   box-shadow: 0 8px 54px rgba(106, 27, 154, 0.98), 0 0 96px rgba(106, 27, 154, 0.74);
+   filter: brightness(1.34);
  }
+ 20% {
+   box-shadow: 0 5px 28px rgba(106, 27, 154, 0.58), 0 0 44px rgba(106, 27, 154, 0.36);
+   filter: brightness(1.08);
+ }
+ 27% {
+   box-shadow: 0 9px 60px rgba(106, 27, 154, 1), 0 0 104px rgba(106, 27, 154, 0.8);
+   filter: brightness(1.4);
+ }
+ 40% {
+   box-shadow: 0 4px 22px rgba(106, 27, 154, 0.48), 0 0 32px rgba(106, 27, 154, 0.24);
+   filter: brightness(1.02);
+ }
+ 58% {
+   box-shadow: 0 4px 18px rgba(106, 27, 154, 0.4), 0 0 26px rgba(106, 27, 154, 0.18);
+   filter: brightness(0.96);
+ }
+}
+
+/* Reusable neon-flicker snippet for any bot element */
+.buildcalc-bot-neon {
+ animation: buildcalc-neon-flicker 1.8s infinite cubic-bezier(0.42, 0, 0.2, 1);
+ will-change: filter, box-shadow;
 }
 
 
@@ -70,6 +94,40 @@
  height: 38px;
  fill: #ffffff;
  transition: transform 0.3s ease;
+}
+
+#buildcalc-chat-toggle:not(.open) .icon-chat .bot-eye,
+#buildcalc-chat-toggle:not(.open) .icon-chat .bot-eye-glint {
+ transform-box: fill-box;
+ transform-origin: center;
+ animation: buildcalc-eye-blink 4s infinite ease-in-out;
+}
+
+#buildcalc-chat-toggle:not(.open) .icon-chat .bot-eye-right,
+#buildcalc-chat-toggle:not(.open) .icon-chat .bot-eye-glint-right {
+ animation-delay: 0.08s;
+}
+
+@keyframes buildcalc-eye-blink {
+ 0%, 44%, 48%, 100% {
+   transform: scaleY(1);
+   opacity: 1;
+ }
+ 46% {
+   transform: scaleY(0.08);
+   opacity: 0.55;
+ }
+}
+
+@media (prefers-reduced-motion: reduce) {
+ #buildcalc-chat-toggle {
+   animation: none;
+ }
+
+ #buildcalc-chat-toggle:not(.open) .icon-chat .bot-eye,
+ #buildcalc-chat-toggle:not(.open) .icon-chat .bot-eye-glint {
+   animation: none;
+ }
 }
 
 

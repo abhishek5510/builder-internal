@@ -83,11 +83,11 @@
            <!-- AI Bot Head -->
            <rect x="14" y="18" width="36" height="30" rx="8" fill="#ffffff"/>
            <!-- Eyes -->
-           <circle cx="25" cy="31" r="4" fill="#6a1b9a"/>
-           <circle cx="39" cy="31" r="4" fill="#6a1b9a"/>
+           <circle class="bot-eye bot-eye-left" cx="25" cy="31" r="4" fill="#6a1b9a"/>
+           <circle class="bot-eye bot-eye-right" cx="39" cy="31" r="4" fill="#6a1b9a"/>
            <!-- Eye glints -->
-           <circle cx="26.5" cy="29.5" r="1.2" fill="#ce93d8"/>
-           <circle cx="40.5" cy="29.5" r="1.2" fill="#ce93d8"/>
+           <circle class="bot-eye-glint bot-eye-glint-left" cx="26.5" cy="29.5" r="1.2" fill="#ce93d8"/>
+           <circle class="bot-eye-glint bot-eye-glint-right" cx="40.5" cy="29.5" r="1.2" fill="#ce93d8"/>
            <!-- Mouth / smile -->
            <path d="M26 40 Q32 45 38 40" stroke="#6a1b9a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
            <!-- Antenna -->
