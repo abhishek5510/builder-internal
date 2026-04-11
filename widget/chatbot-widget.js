@@ -52,6 +52,20 @@
        "--buildcalc-form-bg-start": "#eff7ff",
        "--buildcalc-form-bg-end": "#e3f1ff",
        "--buildcalc-form-focus-shadow": "rgba(29, 122, 209, 0.18)",
+       "--buildcalc-accent-gold": "#5fa7e8",
+       "--buildcalc-accent-gold-soft": "#9bc8ef",
+     },
+     d2k: {
+       "--buildcalc-primary": "#1f3556",
+       "--buildcalc-primary-2": "#2d4a75",
+       "--buildcalc-primary-soft": "#c7b07a",
+       "--buildcalc-primary-text-soft": "#e6dcc3",
+       "--buildcalc-primary-strong-text": "#162743",
+       "--buildcalc-form-bg-start": "#f6f7fa",
+       "--buildcalc-form-bg-end": "#eceff5",
+       "--buildcalc-form-focus-shadow": "rgba(31, 53, 86, 0.16)",
+       "--buildcalc-accent-gold": "#b59a56",
+       "--buildcalc-accent-gold-soft": "#d8c89a",
      },
    },
 
@@ -106,8 +120,8 @@
            <div class="avatar">
              <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
                <rect x="8" y="14" width="32" height="24" rx="7" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-               <circle cx="19" cy="25" r="3" class="bot-accent-fill"/>
-               <circle cx="29" cy="25" r="3" class="bot-accent-fill"/>
+               <circle cx="19" cy="25" r="3" class="bot-eye bot-eye-left bot-accent-fill"/>
+               <circle cx="29" cy="25" r="3" class="bot-eye bot-eye-right bot-accent-fill"/>
                <path d="M19 32 Q24 36 29 32" stroke="rgba(255,255,255,0.8)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
                <line x1="24" y1="14" x2="24" y2="8" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/>
                <circle cx="24" cy="6" r="2.5" class="bot-accent-fill"/>
@@ -131,8 +145,8 @@
                <div class="buildcalc-form-avatar">
                  <svg viewBox="0 0 48 48" fill="none" width="44" height="44">
                    <rect x="8" y="14" width="32" height="24" rx="7" fill="#edf1f7" stroke="#c7b07a" stroke-width="1.5"/>
-                   <circle cx="19" cy="25" r="3" fill="#2d4a75"/>
-                   <circle cx="29" cy="25" r="3" fill="#2d4a75"/>
+                   <circle cx="19" cy="25" r="3" class="bot-eye bot-eye-left" fill="#2d4a75"/>
+                   <circle cx="29" cy="25" r="3" class="bot-eye bot-eye-right" fill="#2d4a75"/>
                    <path d="M19 32 Q24 36 29 32" stroke="#1f3556" stroke-width="1.8" fill="none" stroke-linecap="round"/>
                    <line x1="24" y1="14" x2="24" y2="8" stroke="#c7b07a" stroke-width="2" stroke-linecap="round"/>
                    <circle cx="24" cy="6" r="2.5" fill="#2d4a75"/>

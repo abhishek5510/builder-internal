@@ -133,15 +133,15 @@
  transition: transform 0.3s ease;
 }
 
-#buildcalc-chat-toggle:not(.open) .icon-chat .bot-eye,
-#buildcalc-chat-toggle:not(.open) .icon-chat .bot-eye-glint {
+.chatbot-widget .bot-eye,
+.chatbot-widget .bot-eye-glint {
  transform-box: fill-box;
  transform-origin: center;
  animation: buildcalc-eye-blink 4s infinite ease-in-out;
 }
 
-#buildcalc-chat-toggle:not(.open) .icon-chat .bot-eye-right,
-#buildcalc-chat-toggle:not(.open) .icon-chat .bot-eye-glint-right {
+.chatbot-widget .bot-eye-right,
+.chatbot-widget .bot-eye-glint-right {
  animation-delay: 0.08s;
 }
 
@@ -161,10 +161,6 @@
    animation: none;
  }
 
- #buildcalc-chat-toggle:not(.open) .icon-chat .bot-eye,
- #buildcalc-chat-toggle:not(.open) .icon-chat .bot-eye-glint {
-   animation: none;
- }
 }
 
 
@@ -742,13 +738,13 @@
 
 #buildcalc-form-submit:hover {
  transform: translateY(-2px);
- box-shadow: 0 6px 20px rgba(106, 27, 154, 0.35);
+ box-shadow: 0 6px 20px color-mix(in srgb, var(--buildcalc-primary) 72%, transparent);
 }
 
 
 #buildcalc-form-submit:active {
  transform: translateY(0);
- box-shadow: 0 2px 8px rgba(106, 27, 154, 0.25);
+ box-shadow: 0 2px 8px color-mix(in srgb, var(--buildcalc-primary) 55%, transparent);
 }
 
 
