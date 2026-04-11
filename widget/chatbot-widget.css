@@ -38,24 +38,40 @@
  align-items: center;
  justify-content: center;
  transition: transform 0.3s ease, box-shadow 0.3s ease;
- animation: buildcalc-neon-flicker 2.8s infinite ease-in-out;
+ animation: buildcalc-neon-flicker 1.8s infinite cubic-bezier(0.42, 0, 0.2, 1);
 }
 
 
 @keyframes buildcalc-neon-flicker {
  0%, 100% {
-   box-shadow: 0 4px 16px rgba(106, 27, 154, 0.34), 0 0 18px rgba(106, 27, 154, 0.12);
-   filter: brightness(0.95);
+   box-shadow: 0 4px 18px rgba(106, 27, 154, 0.42), 0 0 26px rgba(106, 27, 154, 0.2);
+   filter: brightness(0.98);
  }
- 50% {
-   box-shadow: 0 4px 28px rgba(106, 27, 154, 0.66), 0 0 44px rgba(106, 27, 154, 0.4);
-   filter: brightness(1.12);
+ 12% {
+   box-shadow: 0 8px 54px rgba(106, 27, 154, 0.98), 0 0 96px rgba(106, 27, 154, 0.74);
+   filter: brightness(1.34);
+ }
+ 20% {
+   box-shadow: 0 5px 28px rgba(106, 27, 154, 0.58), 0 0 44px rgba(106, 27, 154, 0.36);
+   filter: brightness(1.08);
+ }
+ 27% {
+   box-shadow: 0 9px 60px rgba(106, 27, 154, 1), 0 0 104px rgba(106, 27, 154, 0.8);
+   filter: brightness(1.4);
+ }
+ 40% {
+   box-shadow: 0 4px 22px rgba(106, 27, 154, 0.48), 0 0 32px rgba(106, 27, 154, 0.24);
+   filter: brightness(1.02);
+ }
+ 58% {
+   box-shadow: 0 4px 18px rgba(106, 27, 154, 0.4), 0 0 26px rgba(106, 27, 154, 0.18);
+   filter: brightness(0.96);
  }
 }
 
 /* Reusable neon-flicker snippet for any bot element */
 .buildcalc-bot-neon {
- animation: buildcalc-neon-flicker 2.8s infinite ease-in-out;
+ animation: buildcalc-neon-flicker 1.8s infinite cubic-bezier(0.42, 0, 0.2, 1);
  will-change: filter, box-shadow;
 }
 
