@@ -38,17 +38,29 @@
  align-items: center;
  justify-content: center;
  transition: transform 0.3s ease, box-shadow 0.3s ease;
- animation: buildcalc-toggle-glow 3s infinite ease-in-out;
+ animation: buildcalc-neon-flicker 2.7s infinite steps(1, end);
 }
 
 
-@keyframes buildcalc-toggle-glow {
- 0%, 100% {
-   box-shadow: 0 4px 18px rgba(106, 27, 154, 0.4), 0 0 24px rgba(106, 27, 154, 0.15);
+@keyframes buildcalc-neon-flicker {
+ 0%, 7%, 11%, 14%, 19%, 33%, 36%, 58%, 62%, 100% {
+   box-shadow: 0 4px 28px rgba(106, 27, 154, 0.68), 0 0 42px rgba(106, 27, 154, 0.42);
+   filter: brightness(1.1);
  }
- 50% {
-   box-shadow: 0 4px 24px rgba(106, 27, 154, 0.6), 0 0 36px rgba(106, 27, 154, 0.3);
+ 8%, 12%, 17%, 27%, 35%, 59% {
+   box-shadow: 0 3px 10px rgba(106, 27, 154, 0.2), 0 0 10px rgba(106, 27, 154, 0.08);
+   filter: brightness(0.82);
  }
+ 9%, 13%, 18%, 29%, 37%, 61% {
+   box-shadow: 0 4px 22px rgba(106, 27, 154, 0.56), 0 0 32px rgba(106, 27, 154, 0.25);
+   filter: brightness(1.02);
+ }
+}
+
+/* Reusable neon-flicker snippet for any bot element */
+.buildcalc-bot-neon {
+ animation: buildcalc-neon-flicker 2.7s infinite steps(1, end);
+ will-change: filter, box-shadow;
 }
 
 
