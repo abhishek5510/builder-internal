@@ -83,19 +83,19 @@
            <!-- AI Bot Head -->
            <rect x="14" y="18" width="36" height="30" rx="8" fill="#ffffff"/>
            <!-- Eyes -->
-           <circle class="bot-eye bot-eye-left" cx="25" cy="31" r="4" fill="#6a1b9a"/>
-           <circle class="bot-eye bot-eye-right" cx="39" cy="31" r="4" fill="#6a1b9a"/>
+           <circle class="bot-eye bot-eye-left bot-accent-fill" cx="25" cy="31" r="4"/>
+           <circle class="bot-eye bot-eye-right bot-accent-fill" cx="39" cy="31" r="4"/>
            <!-- Eye glints -->
-           <circle class="bot-eye-glint bot-eye-glint-left" cx="26.5" cy="29.5" r="1.2" fill="#ce93d8"/>
-           <circle class="bot-eye-glint bot-eye-glint-right" cx="40.5" cy="29.5" r="1.2" fill="#ce93d8"/>
+           <circle class="bot-eye-glint bot-eye-glint-left bot-accent-fill" cx="26.5" cy="29.5" r="1.2"/>
+           <circle class="bot-eye-glint bot-eye-glint-right bot-accent-fill" cx="40.5" cy="29.5" r="1.2"/>
            <!-- Mouth / smile -->
-           <path d="M26 40 Q32 45 38 40" stroke="#6a1b9a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+           <path d="M26 40 Q32 45 38 40" class="bot-accent-stroke" stroke-width="2.2" fill="none" stroke-linecap="round"/>
            <!-- Antenna -->
            <line x1="32" y1="18" x2="32" y2="10" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
-           <circle cx="32" cy="8" r="3.5" fill="#ce93d8"/>
+           <circle cx="32" cy="8" r="3.5" class="bot-accent-fill"/>
            <!-- Ear nodes -->
-           <circle cx="11" cy="30" r="3.5" fill="#ce93d8"/>
-           <circle cx="53" cy="30" r="3.5" fill="#ce93d8"/>
+           <circle cx="11" cy="30" r="3.5" class="bot-accent-fill"/>
+           <circle cx="53" cy="30" r="3.5" class="bot-accent-fill"/>
          </svg>
          <svg class="icon-close" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="#ffffff"/></svg>
        </button>
@@ -106,11 +106,11 @@
            <div class="avatar">
              <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
                <rect x="8" y="14" width="32" height="24" rx="7" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-               <circle cx="19" cy="25" r="3" fill="#ce93d8"/>
-               <circle cx="29" cy="25" r="3" fill="#ce93d8"/>
+               <circle cx="19" cy="25" r="3" class="bot-accent-fill"/>
+               <circle cx="29" cy="25" r="3" class="bot-accent-fill"/>
                <path d="M19 32 Q24 36 29 32" stroke="rgba(255,255,255,0.8)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
                <line x1="24" y1="14" x2="24" y2="8" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/>
-               <circle cx="24" cy="6" r="2.5" fill="#ce93d8"/>
+               <circle cx="24" cy="6" r="2.5" class="bot-accent-fill"/>
                <circle cx="5.5" cy="24" r="2.5" fill="rgba(255,255,255,0.3)"/>
                <circle cx="42.5" cy="24" r="2.5" fill="rgba(255,255,255,0.3)"/>
              </svg>
@@ -130,12 +130,12 @@
              <div class="buildcalc-form-header">
                <div class="buildcalc-form-avatar">
                  <svg viewBox="0 0 48 48" fill="none" width="44" height="44">
-                   <rect x="8" y="14" width="32" height="24" rx="7" fill="#f3e5f5" stroke="#ce93d8" stroke-width="1.5"/>
-                   <circle cx="19" cy="25" r="3" fill="#9c27b0"/>
-                   <circle cx="29" cy="25" r="3" fill="#9c27b0"/>
-                   <path d="M19 32 Q24 36 29 32" stroke="#6a1b9a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-                   <line x1="24" y1="14" x2="24" y2="8" stroke="#ce93d8" stroke-width="2" stroke-linecap="round"/>
-                   <circle cx="24" cy="6" r="2.5" fill="#9c27b0"/>
+                   <rect x="8" y="14" width="32" height="24" rx="7" fill="#edf1f7" stroke="#c7b07a" stroke-width="1.5"/>
+                   <circle cx="19" cy="25" r="3" fill="#2d4a75"/>
+                   <circle cx="29" cy="25" r="3" fill="#2d4a75"/>
+                   <path d="M19 32 Q24 36 29 32" stroke="#1f3556" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                   <line x1="24" y1="14" x2="24" y2="8" stroke="#c7b07a" stroke-width="2" stroke-linecap="round"/>
+                   <circle cx="24" cy="6" r="2.5" fill="#2d4a75"/>
                  </svg>
                </div>
                <h3 class="buildcalc-form-title">Hi there!</h3>
