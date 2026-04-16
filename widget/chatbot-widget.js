@@ -41,6 +41,7 @@
      botTagline: "Construction Cost Estimator",
      welcomeMessage:
        "Hello! I'm BuildCalc. I can help you get a preliminary estimate for your construction project. Just describe what you're planning!",
+     autoOpen: true,
    },
    clientThemes: {
      mathapathi: {
@@ -68,6 +69,11 @@
        "--buildcalc-accent-gold-soft": "#d8c89a",
      },
    },
+   clientBehaviors: {
+     mathapathi: {
+       autoOpen: false,
+     },
+   },
 
    sessionId: null,
    userName: null,
@@ -78,10 +84,13 @@
      Object.assign(this.config, options);
      this._injectHTML();
      this._applyClientTheme();
+     this._applyClientBehavior();
      this._bindEvents();
 
-     // Auto-open the chatbot when the page loads
-     this._autoOpen();
+     // Auto-open the chatbot when enabled for this client
+     if (this.config.autoOpen) {
+       this._autoOpen();
+     }
    },
 
    /* -------------------------------------------------- *
@@ -210,6 +219,14 @@
      Object.entries(theme).forEach(([key, value]) => {
        widgetRoot.style.setProperty(key, value);
      });
+   },
+
+   _applyClientBehavior() {
+     const normalizedOrgId = (this.config.orgId || "").trim().toLowerCase();
+     const behavior = this.clientBehaviors[normalizedOrgId];
+     if (!behavior) return;
+
+     Object.assign(this.config, behavior);
    },
 
    /* -------------------------------------------------- *
